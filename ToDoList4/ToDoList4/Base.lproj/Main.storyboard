@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lo0-xF-2Rr">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -34,14 +34,54 @@
                     <navigationItem key="navigationItem" title="To Do List" id="MeK-DR-37F">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="YbG-jN-eGa">
                             <connections>
-                                <segue destination="2ui-BX-n8T" kind="show" id="Msd-AZ-s8q"/>
+                                <segue destination="2ui-BX-n8T" kind="show" id="z5N-Tn-5O3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="byf-sN-tqk" kind="show" identifier="moveToCompletedToDoVC" id="XU1-nG-1bd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C71-gU-8L7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1358" y="-279"/>
+        </scene>
+        <!--Completed To Do View Controller-->
+        <scene sceneID="J1Z-Wt-XHw">
+            <objects>
+                <viewController id="byf-sN-tqk" customClass="CompletedToDoViewController" customModule="ToDoList4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v3S-Bd-XsF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To Do" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3P-0A-dVF">
+                                <rect key="frame" x="186" y="267" width="69" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pd4-OZ-sWH">
+                                <rect key="frame" x="166" y="393" width="131" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Complete"/>
+                                <connections>
+                                    <action selector="completeTapped:" destination="byf-sN-tqk" eventType="touchUpInside" id="nro-N5-Zv6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ru1-Zu-Xu6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="a2O-vp-NiW"/>
+                    <connections>
+                        <outlet property="ToDoDisplay" destination="Y3P-0A-dVF" id="5QD-jC-Zao"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8B2-U6-gTM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1359.4202898550725" y="616.304347826087"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SK3-Ws-7xW">
@@ -64,7 +104,7 @@
         <!--Add Photo View Controller-->
         <scene sceneID="Tp1-s2-5o4">
             <objects>
-                <viewController id="2ui-BX-n8T" customClass="AddPhotoViewController" customModule="None" sceneMemberID="viewController">
+                <viewController id="2ui-BX-n8T" customClass="AddPhotoViewController" customModule="ToDoList4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RVv-20-u1Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
